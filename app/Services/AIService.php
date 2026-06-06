@@ -7,6 +7,13 @@ use Illuminate\Support\Facades\Log;
 
 class AIService
 {
+    /**
+     * Call the Gemini API to generate an AI summary and determine priority.
+     *
+     * @param Task $task
+     * @return array An array containing 'ai_summary' and 'ai_priority'
+     * @throws \Exception If the API key is missing or the response is invalid
+     */
     public function generateSummary(Task $task): array
     {
         $prompt = "Given this task:\nTitle: {$task->title}\nDescription: {$task->description}\nDue: {$task->due_date}\n\nReturn a JSON object with keys:\n- 'ai_summary' (2-3 sentence summary of the task)\n- 'ai_priority' (one of: low, medium, high based on urgency and complexity).\n\nOnly return valid JSON without any markdown formatting.";
@@ -18,7 +25,7 @@ class AIService
             }
 
             $client = \Gemini::client($apiKey);
-            $response = $client->generativeModel(model: 'gemini-1.5-flash')->generateContent($prompt);
+            $response = $client->generativeModel(model: 'gemini-2.5-flash')->generateContent($prompt);
             
             $text = $response->text();
             

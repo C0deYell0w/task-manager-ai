@@ -12,10 +12,22 @@ class GenerateAISummaryJob implements ShouldQueue
 {
     use Queueable;
 
+    /**
+     * Create a new job instance.
+     *
+     * @param Task $task
+     */
     public function __construct(
         public Task $task
     ) {}
 
+    /**
+     * Execute the job to generate an AI summary and save it to the database.
+     *
+     * @param AIService $aiService
+     * @param TaskRepositoryInterface $repository
+     * @return void
+     */
     public function handle(AIService $aiService, TaskRepositoryInterface $repository): void
     {
         // Don't generate if the task was already deleted

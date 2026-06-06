@@ -2,21 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Gate;
 
 class AdminController extends Controller
 {
+    public function __construct(protected UserService $userService) {}
+
+    /**
+     * Display a paginated list of users for administration.
+     *
+     * @param Request $request
+     * @return \Inertia\Response
+     */
     public function users(Request $request)
     {
         Gate::authorize('manage-users');
 
-        $users = User::paginate(15);
+        $users = $this->userService->getPaginatedUsers(15);
 
         return Inertia::render('Admin/Users', [
-            'users' => $users
+            'users' => \App\Http\Resources\UserResource::collection($users)
         ]);
     }
 }
