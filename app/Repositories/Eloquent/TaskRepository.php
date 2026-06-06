@@ -14,8 +14,10 @@ class TaskRepository implements TaskRepositoryInterface
 
         return Cache::remember($cacheKey, 60, function () use ($filters) {
             return Task::query()
-                ->with('assignedUser')
+                ->select(['id', 'title', 'status', 'priority', 'due_date', 'ai_summary', 'assigned_to', 'created_at'])
+                ->with('assignedUser:id,name')
                 ->filter($filters)
+                ->latest()
                 ->paginate(10);
         });
     }
