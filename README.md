@@ -1,6 +1,6 @@
 # Task Manager AI
 
-Task Manager AI is a modern, full-stack task management application built with Laravel 11, Vue 3, Inertia.js, and Vuetify. It features a sleek user interface with role-based access control and integrates deeply with the Google Gemini 2.5 API to automatically generate intelligent summaries and priority recommendations for your tasks!
+Task Manager AI is a modern, full-stack task management application built with Laravel 12, Vue 3, Inertia.js, and Vuetify. It features a sleek user interface with role-based access control and integrates deeply with the Google Gemini 2.5 API to automatically generate intelligent summaries and priority recommendations for your tasks!
 
 ---
 
@@ -19,7 +19,7 @@ Task Manager AI is a modern, full-stack task management application built with L
 
 ## 🛠️ Tech Stack
 
-- **Backend:** Laravel 11 (PHP 8.2+)
+- **Backend:** Laravel 12 (PHP 8.2+)
 - **Frontend:** Vue 3 (Composition API) + Inertia.js
 - **Styling Frameworks:** Vuetify 3 + Tailwind CSS
 - **Data Visualization:** Chart.js (`vue-chartjs`)
