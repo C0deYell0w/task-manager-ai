@@ -108,4 +108,4 @@ You can now visit the app in your browser at `http://localhost:8000`.
   - `AIService`: Manages the Gemini API interactions, regex-based JSON extraction, and mock fallbacks.
   - `DashboardService`: Aggregates complex statistics and metrics for Chart.js.
 - **`app/Jobs`**: Contains `GenerateAISummaryJob` which processes AI requests asynchronously.
-- **`resources/js/Pages`**: Contains the Vue components serving as Inertia pages, completely stripped of inline-CSS.
+- **`resources/js/Pages`**: Contains the Vue components serving as Inertia pages.
