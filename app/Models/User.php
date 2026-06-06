@@ -47,4 +47,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function isAdmin(): bool
+    {
+        return $this->role === \App\Enums\RoleEnum::Admin->value;
+    }
+
+    public function isUser(): bool
+    {
+        return $this->role === \App\Enums\RoleEnum::User->value;
+    }
 }
